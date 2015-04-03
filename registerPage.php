@@ -37,7 +37,7 @@
                 echo '
                 <div class="checkbox">
                   <label>
-                    <input type='checkbox' name='category[]' value='".$res['id']."'>".$res['name']."
+                    <input type="checkbox" name="category[]" value="'.$res['id'].'">'.$res['name'].'
                   </label>
                 </div>';
               }
