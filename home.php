@@ -69,7 +69,7 @@
 
 
   <div class="container">
-    <div class="col-md-5">
+    <div class="col-md-4">
 
       <form enctype="multipart/form-data" method="post" action="uploadImage.php">
         <div class="form-group">
@@ -86,21 +86,16 @@
         </div>
         <input type="submit" value="upload image" class="btn btn-primary">
       </form>
-      <hr>
+    </div>
 
+    <div class="col-md-8">
       <?php
         echo $myImg;
       ?>
     </div>
-      <div class="col-md-7">
-          <?php
-              //echo $myImg;
-          ?>
-      </div>
   </div>
 
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>
