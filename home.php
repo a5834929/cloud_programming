@@ -18,10 +18,10 @@
         <div class="col-md-12">
           <div class="thumbnail">
             <img src="' .$S3_URL.'user_upload/'.$res['s3_link'].'" alt="...">
-          </div>
-          <div class="caption">
-            <h3>' .$res['title']. '</h3>
-            <p>' .$res['caption']. '</p>
+            <div class="caption">
+              <h3>' .$res['title']. '</h3>
+              <p>' .$res['caption']. '</p>
+            </div>
           </div>
         </div>
       </div>';
