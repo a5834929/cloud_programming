@@ -2,8 +2,8 @@
   include('config/mysqli.php');
   require('config/setting.php');
   require 'vendor/autoload.php';
-  session_start();
   use Aws\S3\S3Client;
+  session_start();
 
   $time = Time();
   $name = $_FILES["file"]["name"] . (string)$time;
