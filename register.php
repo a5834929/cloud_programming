@@ -11,7 +11,8 @@ $category = $_POST['category'];
 $mobile   = $_POST['mobile'];
 
 if($mobile=="1"){ //from android
-	if($email!="" && $password!=""){
+
+  if($email!="" && $password!=""){
         $valid = checkEmail($email, $link);
         if($valid==1){
 			$newId=insertUser($email, $password, $link);
@@ -29,24 +30,27 @@ if($mobile=="1"){ //from android
 		header("CauseId: 1");
 	}
 }
-else{ //from website
-	if($email!="" && $password!=""){
-        $valid = checkEmail($email, $link);
-        if($valid==1){
-			$newId=insertUser($email, $password, $link);
-			echo '<meta http-equiv="Refresh" content="0;url=http://'.$SERVER_IP.'/cloud_programming/verifyNotice.php">';
-		}
-        else{
-			echo '<script>alert("This email has already registered");</script>';
-			echo '<meta http-equiv="Refresh" content="0;url=http://'.$SERVER_IP.'/cloud_programming/registerPage.php">';
-        }
-	}else{
-			echo '<script>alert("Please enter both email and password");</script>';
-			echo '<meta http-equiv="Refresh" content="0;url=http://'.$SERVER_IP.'/cloud_programming/registerPage.php">';
+else { //from website
+
+	if ($email != "" && $password != "") {
+
+    $valid = checkEmail($email, $link);
+    echo "$valid";
+      if($valid == 1) {
+        $newId = insertUser($email, $username, $password, $link);
+			  echo '<meta http-equiv="Refresh" content="0;url=http://'.$SERVER_IP.'/cloud_programming/verifyNotice.php">';
+		  } else {
+        echo '<script>alert("This email has already registered");</script>';
+			  echo '<meta http-equiv="Refresh" content="0;url=http://'.$SERVER_IP.'/cloud_programming/registerPage.php">';
+      }
+
+	} else {
+    echo '<script>alert("Please enter both email and password");</script>';
+    echo '<meta http-equiv="Refresh" content="0;url=http://'.$SERVER_IP.'/cloud_programming/registerPage.php">';
 	}
 }
 
-function insertUser($email, $password, $link){
+function insertUser($email, $username, $password, $link){
 	//insert user
 	$sql = "INSERT INTO user VALUES (NULL, '$email', '$username', '$password', 0)";
 	mysqli_query($link, $sql);
