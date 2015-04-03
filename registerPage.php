@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
               <label for="username">Name</label>
-              <input type="username" class="form-control" id="username" name="username" placeholder="username">
+              <input type="text" class="form-control" id="username" name="username" placeholder="username">
             </div>
             <div class="form-group">
               <label for="pwd">Password</label>
