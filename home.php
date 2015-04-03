@@ -5,9 +5,9 @@
   use Aws\S3\S3Client;
   session_start();
 
-  //$userId = 4;
   $userId = $_SESSION['userId'];
   $email = $_SESSION['email'];
+  $username = $_SESSION['username'];
   $sql = "SELECT * FROM image WHERE '$userId' = user_id";
   $result = $link->query($sql);
   $myImg="";
@@ -65,9 +65,9 @@
 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              Dropdown <span class="caret"></span></a>
+              <?php echo $username ?><span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
+              <li><a href="#">Edit Profile</a></li>
               <li><a href="./logout.php">Log out</a></li>
             </ul>
           </li>
