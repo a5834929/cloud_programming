@@ -5,10 +5,11 @@ include("sendEmail.php");
 include("config/setting.php");
 
 $email    = $_POST['email'];
-$username = $_POST['username']
+$username = $_POST['username'];
 $password = $_POST['pwd'];
 $category = $_POST['category'];
 $mobile   = $_POST['mobile'];
+
 
 if($mobile=="1"){ //from android
 
