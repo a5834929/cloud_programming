@@ -62,8 +62,15 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="./logout.php">Log out</a></li>
 
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="./logout.php">Log out</a></li>
+            </ul>
+          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -73,6 +80,9 @@
   <div class="container">
     <div class="col-md-4">
       <div data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+
+
+
         <form enctype="multipart/form-data" method="post" action="uploadImage.php">
           <div class="form-group">
             <label for="title">Title: </label>
@@ -91,7 +101,7 @@
       </div>
     </div>
 
-    <div class="col-md-7 col-md-offset-1">
+    <div class="col-md-6 col-md-offset-2">
       <?php
         echo $myImg;
       ?>

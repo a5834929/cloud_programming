@@ -18,11 +18,11 @@
 				$res = $result->fetch_array(MYSQLI_BOTH);
 				$pwd = $res['pwd'];
 				if(strcmp($password, $pwd)!=0){ //wrong psw
-					header($_SERVER["SERVER_PROTOCOL"]." 401");					
+					header($_SERVER["SERVER_PROTOCOL"]." 401");
 				}else{//correct psw
 					$resp["uid"]=$res['id'];
 					header($_SERVER["SERVER_PROTOCOL"]." 200");
-					
+
 					echo json_encode($resp);
 				}
 			}
@@ -31,39 +31,43 @@
 			header($_SERVER["SERVER_PROTOCOL"]." 400");
 			header("CauseId: 1");
 		}
-	
+
 	}
-	else{//for website		
-		if($email!="" && $password!=""){
-			$result=login($email,$password, $link);
-			$cnt=$result->num_rows;
-			if($cnt==0){ // email doesn't exist
+	else {//for website
+		if ($email != "" && $password != ""){
+
+			$result = login($email,$password, $link);
+			$cnt = $result->num_rows;
+
+			if ($cnt == 0) { // email doesn't exist
 				echo "<script>alert('Email does not exist. Please register!');</script>";
 				echo "<meta http-equiv='Refresh' content='0;url=http://".$SERVER_IP."/cloud_programming/index.php'>";
-			}else{ //check psw
+			} else { //check psw
 				$res = $result->fetch_array(MYSQLI_BOTH);
 				$pwd = $res['pwd'];
-				if(strcmp($password, $pwd)!=0){ //wrong psw
+
+				if (strcmp($password, $pwd) != 0) { //wrong psw
 					echo "<script>alert('Wrong password!');</script>";
 					echo "<meta http-equiv='Refresh' content='0;url=http://".$SERVER_IP."/cloud_programming/index.php'>";
-				}else{//correct psw
-					$_SESSION['email'] = $email;
-					$_SESSION['userId'] = $res['id'];
+				} else {//correct psw
+					$_SESSION['email'] 		= $email;
+					$_SESSION['userId'] 	= $res['id'];
+					$_SESSION['username'] = $res['username'];
 					echo "<script>alert('Welcome!');</script>";
 					echo "<meta http-equiv='Refresh' content='0;url=http://".$SERVER_IP."/cloud_programming/home.php'>";
 				}
 			}
 		}
-		else{
+		else {
 			echo "<script>alert('Please enter both email and password');</script>";
 			echo "<meta httpd-equiv='Refresh' content='0;url=http://".$SERVER_IP."/cloud_programming/index.php'>";
 		}
 	}
-	
-	
+
+
 	function login($email, $password, $link){
 		$sql = "SELECT * FROM user WHERE email='$email'";
 		$result = $link->query($sql);
 		return $result;
-	}	
+	}
 ?>

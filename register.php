@@ -4,27 +4,28 @@ include("config/mysqli.php");
 include("sendEmail.php");
 include("config/setting.php");
 
-$email = $_POST['email'];
+$email    = $_POST['email'];
+$username = $_POST['username']
 $password = $_POST['pwd'];
 $category = $_POST['category'];
-$mobile = $_POST['mobile'];
+$mobile   = $_POST['mobile'];
 
 if($mobile=="1"){ //from android
 	if($email!="" && $password!=""){
         $valid = checkEmail($email, $link);
         if($valid==1){
 			$newId=insertUser($email, $password, $link);
-			$resp["uid"]=$newId;			
+			$resp["uid"]=$newId;
 			header('Content-type: application/json');
-			header($_SERVER["SERVER_PROTOCOL"]." 200");			
+			header($_SERVER["SERVER_PROTOCOL"]." 200");
 			echo json_encode($resp);
-		}	        
+		}
         else{//email duplicate
 			header($_SERVER["SERVER_PROTOCOL"]." 400");
 			header("CauseId: 0");
-        }		
+        }
 	}else{
-		header($_SERVER["SERVER_PROTOCOL"]." 400");		
+		header($_SERVER["SERVER_PROTOCOL"]." 400");
 		header("CauseId: 1");
 	}
 }
@@ -34,7 +35,7 @@ else{ //from website
         if($valid==1){
 			$newId=insertUser($email, $password, $link);
 			echo '<meta http-equiv="Refresh" content="0;url=http://'.$SERVER_IP.'/cloud_programming/verifyNotice.php">';
-		}	        
+		}
         else{
 			echo '<script>alert("This email has already registered");</script>';
 			echo '<meta http-equiv="Refresh" content="0;url=http://'.$SERVER_IP.'/cloud_programming/registerPage.php">';
@@ -47,7 +48,7 @@ else{ //from website
 
 function insertUser($email, $password, $link){
 	//insert user
-	$sql = "INSERT INTO user VALUES (NULL, '$email', '$password', 0)";
+	$sql = "INSERT INTO user VALUES (NULL, '$email', '$username', '$password', 0)";
 	mysqli_query($link, $sql);
 
 	//get user id
@@ -55,7 +56,7 @@ function insertUser($email, $password, $link){
 	$result = $link->query($sql);
 	$res = $result->fetch_array(MYSQLI_BOTH);
 	$newId = $res[0];
-	
+
 	//insert subscribe
 	for($i=0;$i<count($category);$i++){
 		$catId = $category[$i];
@@ -63,7 +64,7 @@ function insertUser($email, $password, $link){
 		$link->query($sql);
 	}
 	sendVerifyEmail($email, $newId);
-	
+
 	return $newId;
 }
 
