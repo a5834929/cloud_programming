@@ -71,7 +71,7 @@
 
 
   <div class="container">
-    <div class="col-md-4">
+    <div class="col-md-4" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
 
       <form enctype="multipart/form-data" method="post" action="uploadImage.php">
         <div class="form-group">
