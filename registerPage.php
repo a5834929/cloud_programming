@@ -34,10 +34,14 @@
               $sql = "SELECT * FROM category";
               $result = $link->query($sql);
               while($res = $result->fetch_array(MYSQLI_BOTH))
-                echo "<input type='checkbox' name='category[]' value='".$res['id']."'>".$res['name']."<br>";
+                echo '
+                <div class="checkbox">
+                  <label>
+                    <input type='checkbox' name='category[]' value='".$res['id']."'>".$res['name']."
+                  </label>
+                </div>';
               $result->close();
             ?>
-
             <button type="submit" class="btn btn-default">Register</button>
           </form>
         </div>
@@ -47,7 +51,7 @@
       </div>
     </div>
   </div>
-      
+
 
 
   <!-- Latest compiled and minified JavaScript -->
@@ -57,4 +61,3 @@
 
 </body>
 </html>
-
