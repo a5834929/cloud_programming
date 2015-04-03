@@ -2,21 +2,22 @@
   include('config/mysqli.php');
   require('config/setting.php');
   require 'vendor/autoload.php';
+  session_start();
   use Aws\S3\S3Client;
-  
+
   $time = Time();
   $name = $_FILES["file"]["name"] . (string)$time;
-  $s3_link = "user_upload/".$name;
+
 
   $title = $_POST['title'];
   $caption = $_POST['caption'];
-  //$user_id = 4;
+  $s3_link = "user_upload/".$name;
   $user_id = $_SESSION['userId'];
   $category_id = 1;
 
   $sql = "INSERT INTO image VALUES (NULL, '$title', '$caption', '$name', '$user_id', '$category_id')";
   $link->query($sql);
-  
+
 
   $client = S3Client::factory(array(
     'key' => $AWS_KEY,

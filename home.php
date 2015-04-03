@@ -64,47 +64,44 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li><a href="./logout.php">Log out</a></li>
-          
+
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-    
 
-    <div class="container">
-        <div class="col-md-5">
 
-            <form enctype="multipart/form-data" method="post" action="uploadImage.php">
-                <div class="form-group">
-                    <label for="title">Title: </label>
-                    <input type="text" class="form-control" id="title" name="title">
-                </div>
-                <div class="form-group">
-                    <label for="caption">Caption: </label>
-                    <input type="text" class="form-control" id="caption" name="caption">
-                </div>
-                <div class="form-group">
-                    <label>Upload image</label>
-                    <input type="file" name="file">
-                </div>
-                <input type="submit" value="upload image" class="btn btn-primary">
-            </form>
-            <hr>
+  <div class="container">
+    <div class="col-md-5">
 
-            <?php
-    echo $myImg;
-            ?>
+      <form enctype="multipart/form-data" method="post" action="uploadImage.php">
+        <div class="form-group">
+          <label for="title">Title: </label>
+          <input type="text" class="form-control" id="title" name="title">
         </div>
-        <div class="col-md-7">
-            <?php
-                //echo $myImg;
-            ?>
+        <div class="form-group">
+          <label for="caption">Caption: </label>
+          <input type="text" class="form-control" id="caption" name="caption">
         </div>
-    </div>
+        <div class="form-group">
+          <label>Upload image</label>
+          <input type="file" name="file">
+        </div>
+        <input type="submit" value="upload image" class="btn btn-primary">
+      </form>
+      <hr>
 
-
-    <div>
+      <?php
+        echo $myImg;
+      ?>
     </div>
+      <div class="col-md-7">
+          <?php
+              //echo $myImg;
+          ?>
+      </div>
+  </div>
+
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
