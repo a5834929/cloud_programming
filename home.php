@@ -71,23 +71,24 @@
 
 
   <div class="container">
-    <div class="col-md-4" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
-
-      <form enctype="multipart/form-data" method="post" action="uploadImage.php">
-        <div class="form-group">
-          <label for="title">Title: </label>
-          <input type="text" class="form-control" id="title" name="title">
-        </div>
-        <div class="form-group">
-          <label for="caption">Caption: </label>
-          <input type="text" class="form-control" id="caption" name="caption">
-        </div>
-        <div class="form-group">
-          <label>Upload image</label>
-          <input type="file" name="file">
-        </div>
-        <input type="submit" value="upload image" class="btn btn-primary">
-      </form>
+    <div class="col-md-4">
+      <div data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+        <form enctype="multipart/form-data" method="post" action="uploadImage.php">
+          <div class="form-group">
+            <label for="title">Title: </label>
+            <input type="text" class="form-control" id="title" name="title">
+          </div>
+          <div class="form-group">
+            <label for="caption">Caption: </label>
+            <input type="text" class="form-control" id="caption" name="caption">
+          </div>
+          <div class="form-group">
+            <label>Upload image</label>
+            <input type="file" name="file">
+          </div>
+          <input type="submit" value="upload image" class="btn btn-primary">
+        </form>
+      </div>
     </div>
 
     <div class="col-md-7 col-md-offset-1">
