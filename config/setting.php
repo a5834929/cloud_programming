@@ -1,0 +1,8 @@
+<?php
+	$SERVER_IP= "52.5.42.137";
+	$S3_URL="https://s3-us-west-2.amazonaws.com/s3-cp08-100062101/";
+	$AWS_KEY= "AKIAI6ZOUKAMYYMZDFAQ";
+	$AWS_SECRET= "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";
+	$BUCKET_NAME="s3-cp08-100062101";
+
+?>
