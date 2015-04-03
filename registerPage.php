@@ -33,13 +33,14 @@
             <?php
               $sql = "SELECT * FROM category";
               $result = $link->query($sql);
-              while($res = $result->fetch_array(MYSQLI_BOTH))
+              while($res = $result->fetch_array(MYSQLI_BOTH)) {
                 echo '
                 <div class="checkbox">
                   <label>
                     <input type='checkbox' name='category[]' value='".$res['id']."'>".$res['name']."
                   </label>
                 </div>';
+              }
               $result->close();
             ?>
             <button type="submit" class="btn btn-default">Register</button>
